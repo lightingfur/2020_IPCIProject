@@ -13,7 +13,7 @@
 	Connection db = DriverManager.getConnection(url, id, pw);
 		
 	String sql = "select mobile_idx, mobile_str1, mobile_image "
-				+"from mobile_table where mobile_rate >=0.6";
+				+"from mobile_table where mobile_rate <0.3 and  mobile_rate >=0.0";
 		
 	PreparedStatement pstmt = db.prepareStatement(sql);
 	ResultSet rs = pstmt.executeQuery();
@@ -37,6 +37,3 @@
 	db.close();
 %>
 <%= root.toJSONString() %>
-
-
-
